@@ -616,8 +616,20 @@ int main() {
 
     if (pacman.score == pacman.max_score) {
       std::cout << "You win!" << '\n';
+      if (kbhit()) {
+        char key = getchar();
+        if (key == 'q') {
+          game_is_running = false;
+        }
+      }
     } else if (pacman.is_over) {
       std::cout << "You lost!" << '\n';
+      if (kbhit()) {
+        char key = getchar();
+        if (key == 'q') {
+          game_is_running = false;
+        }
+      }
     } else {
       if (kbhit()) {
         char key = getchar();
